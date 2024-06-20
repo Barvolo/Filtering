@@ -7,9 +7,10 @@ from processor.image_processor import ImageProcessor
 def main():
     try:
         args = parse_args()
+
         if not args.output and not args.display:
             raise ValueError("At least one of --output or --display must be specified.")
-        
+
         try:
             # Load image
             image = Image.open(args.input)
@@ -17,7 +18,7 @@ def main():
             raise FileNotFoundError(f"Input file '{args.input}' not found.")
         except UnidentifiedImageError:
             raise ValueError(f"Input file '{args.input}' is not a valid image.")
-        
+
         image_array = np.array(image)
 
         # Create an image processor
