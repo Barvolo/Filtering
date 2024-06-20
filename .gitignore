@@ -1,0 +1,6 @@
+__pycache__/
+cli/__pycache__/
+filters/__pycache__/
+processor/__pycache__/
+tests/__pycache__/
+
