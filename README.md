@@ -120,19 +120,19 @@ edit-image --input images/input/example.png --brightness 20 --contrast -3 --box 
 ```sh
 edit-image --input images/input/example.png --brightness 20 --contrast -3 --output images/output/brightness_contrast.png --display
 ```
-![Example 1 Output](images/output/charizardcharizard.png)
+![Example 1 Output](images/output/charizard.png)
 
 ### Example 2: Apply Box Blur and Sharpening
 ```sh
 edit-image --input images/input/example.png --box width=5,height=5 --sharpen 1.5 --output images/output/box_sharpen.png --display
 ```
-![Example 2 Output](images/output/charizard.jpg)
+![Example 2 Output](images/output/spiderman.jpg)
 
 ### Example 3: Convert to Grayscale and apply Sobel and Invert Colors
 ```sh
 edit-image --input images/input/example.png --grayscale --sobel --invert --output images/output/grayscale_invert.png --display
 ```
-![Example 3 Output](images/output/charizard.jpg)
+![Example 3 Output](images/output/pikachu.jpg)
 
 ## Filter Explanations
 
