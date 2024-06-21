@@ -19,7 +19,7 @@ Welcome to the Advanced Image Editing CLI Tool! This project focuses on developi
 
 ## Project Structure
 
-\`\`\`
+```
 edit-image/
 ├── src/
 │   ├── base/
@@ -39,7 +39,8 @@ edit-image/
 │   │   └── sobel.py
 │   ├── edit_image.py
 │   ├── image_processor.py
-│   └── setup.py
+│   ├── setup.py
+│   ├── requirements.txt
 ├── tests/
 │   ├── __init__.py
 │   └── test_filters.py
@@ -49,7 +50,7 @@ edit-image/
 │   └── output/
 │       └── processed.png
 └── README.md
-\`\`\`
+```
 
 ## Features
 
@@ -73,64 +74,64 @@ edit-image/
 To install the CLI tool, follow these steps:
 
 1. Clone the repository:
-   \`\`\`sh
-   git clone https://github.com/your-username/edit-image.git
+   ```sh
+   git clone https://github.com/barvolo/edit-image.git
    cd edit-image/src
-   \`\`\`
+   ```
 
 2. Install the dependencies:
-   \`\`\`sh
+   ```sh
    pip install -r requirements.txt
-   \`\`\`
+   ```
 
 3. Install the CLI tool:
-   \`\`\`sh
+   ```sh
    pip install -e .
-   \`\`\`
+   ```
 
 ## Usage
 
 The command should follow this structure:
-\`\`\`sh
+```sh
 edit-image --input <path-to-image> [--<feature-name> <feature-specific-arguments>...]... [--display] [--output <output-path>]
-\`\`\`
+```
 
 Example:
-\`\`\`sh
+```sh
 edit-image --input images/input/example.png --brightness 20 --contrast -3 --box width=5,height=5 --output images/output/processed.png --display
-\`\`\`
+```
 
 ### Available Features
 
-- \`--brightness <value>\`: Adjust brightness (e.g., --brightness 20)
-- \`--contrast <value>\`: Adjust contrast (e.g., --contrast -3)
-- \`--saturation <value>\`: Adjust saturation (e.g., --saturation 1.5)
-- \`--grayscale\`: Convert to grayscale
-- \`--invert\`: Invert colors
-- \`--box width=<value>,height=<value>\`: Apply box blur (e.g., --box width=5,height=5)
-- \`--sobel\`: Apply Sobel edge detection
-- \`--sharpen <value>\`: Sharpen image with magnitude (e.g., --sharpen 1.5)
-- \`--display\`: Display the processed image
-- \`--output <path>\`: Save the processed image to the specified path
+- `--brightness <value>`: Adjust brightness (e.g., --brightness 20)
+- `--contrast <value>`: Adjust contrast (e.g., --contrast -3)
+- `--saturation <value>`: Adjust saturation (e.g., --saturation 1.5)
+- `--grayscale`: Convert to grayscale
+- `--invert`: Invert colors
+- `--box width=<value>,height=<value>`: Apply box blur (e.g., --box width=5,height=5)
+- `--sobel`: Apply Sobel edge detection
+- `--sharpen <value>`: Sharpen image with magnitude (e.g., --sharpen 1.5)
+- `--display`: Display the processed image
+- `--output <path>`: Save the processed image to the specified path
 
 ## Examples
 
 ### Example 1: Adjust Brightness and Contrast
-\`\`\`sh
+```sh
 edit-image --input images/input/example.png --brightness 20 --contrast -3 --output images/output/brightness_contrast.png --display
-\`\`\`
+```
 ![Example 1 Output](images/output/charizardcharizard.png)
 
 ### Example 2: Apply Box Blur and Sharpening
-\`\`\`sh
+```sh
 edit-image --input images/input/example.png --box width=5,height=5 --sharpen 1.5 --output images/output/box_sharpen.png --display
-\`\`\`
+```
 ![Example 2 Output](images/output/charizard.jpg)
 
 ### Example 3: Convert to Grayscale and apply Sobel and Invert Colors
-\`\`\`sh
+```sh
 edit-image --input images/input/example.png --grayscale --sobel --invert --output images/output/grayscale_invert.png --display
-\`\`\`
+```
 ![Example 3 Output](images/output/charizard.jpg)
 
 ## Filter Explanations
@@ -149,14 +150,14 @@ The Sharpen filter enhances the edges by adding the results from the edge detect
 ### Running Tests
 
 1. Navigate to the project root directory:
-   \`\`\`sh
+   ```sh
    cd edit-image
-   \`\`\`
+   ```
 
-2. Run the tests using \`unittest\`:
-   \`\`\`sh
+2. Run the tests using `unittest`:
+   ```sh
    python -m unittest discover tests
-   \`\`\`
+   ```
 
 ### Testing Overview
 
