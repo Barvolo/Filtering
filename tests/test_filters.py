@@ -1,12 +1,31 @@
+"""
+Unit Tests for Image Filters
+
+This suite tests SobelFilter, SharpenFilter, and BoxBlur.
+
+Padding Considerations:
+- SobelFilter and SharpenFilter should use constant padding for predictable edge behavior.
+- Modify these classes to use:
+  padded_image = np.pad(image, 1, mode='constant', constant_values=0)
+- Adjust expected outputs accordingly.
+
+Note: BoxBlur does not use padding and is unaffected by this change.
+"""
+
 import unittest
 import numpy as np
-from filters.box_blur import BoxBlur
-from filters.sobel_filter import SobelFilter
-from filters.sharpen_filter import SharpenFilter
-from processor.image_processor import ImageProcessor
+from src.filters.box_blur import BoxBlur
+from src.filters.sobel_filter import SobelFilter
+from src.filters.sharpen_filter import SharpenFilter
+from src.image_processor import ImageProcessor
 import pdb
 
 
+"""
+GEN: ChatGPT helped refine the approach for setting up test images and validating filter outputs.
+Prompt: "What are best practices for setting up test images and validating output in unit tests for
+        image filters? Can you provide a template example?"
+"""
 class TestBoxBlur(unittest.TestCase):
     def setUp(self):
         # Create simple test images
@@ -133,14 +152,12 @@ class TestSobelFilter(unittest.TestCase):
 
 class TestSharpenFilter(unittest.TestCase):
     def setUp(self):
-        # Create a 3x3 test image
         self.test_image_3x3 = np.array([
             [10, 10, 10],
             [10, 50, 10],
             [10, 10, 10]
         ], dtype=np.uint8)
         
-        # Create a 5x5 test image
         self.test_image_5x5 = np.array([
             [10, 10, 10, 10, 10],
             [10, 50, 50, 50, 10],
@@ -152,10 +169,8 @@ class TestSharpenFilter(unittest.TestCase):
     def test_sharpen_3x3(self):
         sharpen = SharpenFilter(magnitude=0.5)
         
-        # Apply Sharpen filter
         output = sharpen.apply(self.test_image_3x3)
         
-        # Expected edge detection result for 3x3 image
         expected_output = np.array([
             [59, 70, 59],
             [70, 50, 70],
@@ -167,11 +182,8 @@ class TestSharpenFilter(unittest.TestCase):
     def test_sharpen_5x5(self):
         sharpen = SharpenFilter(magnitude=0.5)
         
-        # Apply Sharpen filter
         output = sharpen.apply(self.test_image_5x5)
     
-
-        # Expected edge detection result for 5x5 image
         expected_output = np.array([
             [59, 92, 110, 92, 59],
             [92, 170, 177, 170, 92],
